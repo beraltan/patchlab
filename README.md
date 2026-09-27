@@ -6,6 +6,8 @@ An AI-made tool for messing around with custom rack patch panels and learning Op
 
 Change the rack size, add connector holes, name the ports, and download a single 3MF, separate STLs, or an OpenSCAD file to play with. There are two-color labels, rear ribs, and printed joining keys for panels bigger than your printer bed. You can batch-edit ports too, because doing them one at a time gets old.
 
+Under **Horizontal spacing and stacked rows**, set edge gaps or center spacing and align rows left, center, or right. Individual gaps are editable too. Select a port, choose a rack-unit count, and repeat its row into one continuous panel. Undo layout puts it back. Up to 11U / 100 ports; the panel still has to fit your bed height.
+
 ## Give it a go
 
 1. Make a panel in the browser.
@@ -13,7 +15,7 @@ Change the rack size, add connector holes, name the ports, and download a single
 3. Open the 3MF in your slicer. Body and labels are already grouped and aligned; assign a filament to each part. Split panels and keys can be arranged across plates. STL and ZIP exports are still available.
 4. Print something, see what fits, and adjust.
 
-The 3MF is a standard model file, without printer settings. In Bambu Studio, import the geometry if prompted, expand the panel in the Objects list, and assign your two filaments. Some slicers rename the parts: body comes first, labels second. Keep them grouped when moving or arranging.
+The 3MF is a standard model file, without printer settings. In Bambu Studio, import the geometry if prompted, expand the panel in the Objects list, and assign your two filaments. The export includes named Panel body and Port labels parts, assigned to filaments 1 and 2 in Bambu/Orca. Add two project filaments, switch to Objects, and expand the panel to change them. Other slicers can use the standard 3MF components. Keep them grouped when moving or arranging.
 
 There's a [tolerance test](assets/patchlab-tolerance-test.stl) for dialing in the joining keys before printing a whole panel. This is a learning project, so check your connector dimensions and expect some trial and error. The joints haven't been physically tested yet.
 
