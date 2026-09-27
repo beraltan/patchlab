@@ -9,7 +9,7 @@ Change the rack size, add connector holes, name the ports, and download a single
 ## Give it a go
 
 1. Make a panel in the browser.
-2. Hit **Export for printing**, choose **All parts (single 3MF file)**, then **Generate 3MF**.
+2. Hit **Export for printing**, choose **All parts (single 3MF file)**, then **Download 3MF**. The file is generated and downloaded automatically.
 3. Open the 3MF in your slicer. Body and labels are already grouped and aligned; assign a filament to each part. Split panels and keys can be arranged across plates. STL and ZIP exports are still available.
 4. Print something, see what fits, and adjust.
 
