@@ -55,3 +55,9 @@ When rear ribs or split joints are present, each rack ear has continuous full-he
 Use solid infill in the mounting ears and screws long enough for their increased thickness. The added backing removes the unsupported gap behind the screw clamping area; resistance to crushing and creep still depends on the material and print settings and has not been physically tested.
 
 A rendered unsplit sample was checked by vertical mesh intersections: both 11 mm ears have continuous backing, both rack screw holes remain open, and the central connector face remains 3 mm thick.
+
+## Single-file 3MF
+
+The default export packages the rendered binary STL meshes in a standard [3MF Core](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md) model with millimeter units, base materials, and component assemblies. Each section contains its body and optional labels without independent recentering or transforms. Build items position complete sections apart; the joining-key mesh is instantiated once per seam. Arrange the objects across printer plates as needed. No printer profile, AMS mapping, or proprietary slicer settings are embedded. Slicers may rename parts or ignore display colors; assign physical filaments per part.
+
+A browser-generated 3MF was imported and re-exported through Bambu Studio 02.07.01.62. The result retained one panel object with two volumes. Their bounds after component transforms matched the input within 0.00002 mm. Bambu renamed the parts panel and panel_2; the first is the body, the second is the labels. Automated tests also cover vertex sharing, invalid meshes, blank labels, grouped sections, all joining-key copies, and XML escaping. This validates the tested import path, not every printer or slicer.

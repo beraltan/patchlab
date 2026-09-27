@@ -4,14 +4,16 @@ An AI-made tool for messing around with custom rack patch panels and learning Op
 
 **[Try it in your browser](https://beraltan.github.io/patchlab/)**
 
-Change the rack size, add connector holes, name the ports, and download printable STLs or an OpenSCAD file to play with. There are two-color labels, rear ribs, and printed joining keys for panels bigger than your printer bed. You can batch-edit ports too, because doing them one at a time gets old.
+Change the rack size, add connector holes, name the ports, and download a single 3MF, separate STLs, or an OpenSCAD file to play with. There are two-color labels, rear ribs, and printed joining keys for panels bigger than your printer bed. You can batch-edit ports too, because doing them one at a time gets old.
 
 ## Give it a go
 
 1. Make a panel in the browser.
-2. Hit **Export for printing**, then **Generate STL**.
-3. Download one STL or the ZIP print kit. For two colors, import each body and its labels together as parts of one object.
+2. Hit **Export for printing**, choose **All parts (single 3MF file)**, then **Generate 3MF**.
+3. Open the 3MF in your slicer. Body and labels are already grouped and aligned; assign a filament to each part. Split panels and keys can be arranged across plates. STL and ZIP exports are still available.
 4. Print something, see what fits, and adjust.
+
+The 3MF is a standard model file, without printer settings. In Bambu Studio, import the geometry if prompted, expand the panel in the Objects list, and assign your two filaments. Some slicers rename the parts: body comes first, labels second. Keep them grouped when moving or arranging.
 
 There's a [tolerance test](assets/patchlab-tolerance-test.stl) for dialing in the joining keys before printing a whole panel. This is a learning project, so check your connector dimensions and expect some trial and error. The joints haven't been physically tested yet.
 
