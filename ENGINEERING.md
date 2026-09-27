@@ -37,3 +37,13 @@ The generic D-series template starts with an editable 3 mm mounting limit. Round
 Automated checks cover split bed bounds, protected cutout regions, migration of old projects, fit input validation, connector-thickness warnings and export modes. OpenSCAD 2021.01 renders were checked for simple geometry. A representative panel section and key each render as one solid. A seated key has no volumetric interference with the panel. The tolerance kit contains 15 separate components; the five rail heights were measured from its STL to confirm that their clearances differ.
 
 No physical print, bending test, creep test, latch cycle test, or structural simulation has been performed. Geometry checks do not establish that a long printed panel is sufficiently stiff for every cable load. Material, orientation, wall count, temperature, load and print quality all affect performance. Confirm fit and stiffness on your printer before putting the design into service. Rib clearances are based on cutout bounding boxes and the entered margin, not detailed rear hardware models.
+
+## Direct browser STL export
+
+The website bundles the pinned @lofcz/openscad-wasm 0.0.2 build with the Manifold backend, including Liberation Sans Bold, and invokes it in an isolated worker for each part. The worker uses the same generated geometry as the OpenSCAD download and exports binary STL. Cancellation terminates the worker. The application never sends a design to an external render service.
+
+A print kit is a standard ZIP containing paired body/label STLs for each section, a reusable joining-key STL when needed, project settings, and printing instructions. Empty label sets are omitted. Individual parts can also be rendered and downloaded. The initial engine download is about 12 MB; rendering detailed panels can take several minutes, particularly on slower devices.
+
+Engine and font provenance and licenses are included under `vendor/openscad`. Tests cover part selection, section numbering, empty labels, invalid layouts, ZIP checksums and directory offsets.
+
+A complete seven-STL browser print kit was generated and downloaded during verification. Its ZIP was extracted with the system archive reader. All seven binary STL lengths matched their triangle counts, coordinates were finite, section bodies fit their planned bounds, and label parts occupied Z=0 through the configured 0.6 mm inlay depth. Cancellation was also checked in the browser.
