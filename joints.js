@@ -53,7 +53,7 @@ fit_clearance=clearance;
  if(marked)translate([0,h-7,-8.1])rotate([180,0,0])linear_extrude(height=0.5)text(str(clearance),size=2.4,halign="center",valign="center");
  }
 }
-module joint_body(){difference(){union(){body();reinforcement();rear_bosses();}for(x=seams)translate([x,0,0]){channel_pair(panel_height);latch_pocket();}}}
+module joint_body(){difference(){union(){body();reinforcement();rack_ears();rear_bosses();}for(x=seams)translate([x,0,0]){channel_pair(panel_height);latch_pocket();}}}
 module section_clip(){translate([edges[segment-1],-3,-25])cube([edges[segment]-edges[segment-1],panel_height+6,thickness+50]);}
 module face_down(){translate([-edges[segment-1],panel_height,thickness])rotate([180,0,0])children();}
 module coupon_half(right=false){translate([right?22:0,26,thickness])rotate([180,0,0])intersection(){union(){translate([-18,0,0])cube([36,26,thickness]);rear_boss(26);}translate([right?0:-18,-1,-10])cube([18,28,thickness+20]);}}

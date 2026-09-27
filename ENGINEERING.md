@@ -47,3 +47,11 @@ A print kit is a standard ZIP containing paired body/label STLs for each section
 Engine and font provenance and licenses are included under `vendor/openscad`. Tests cover part selection, section numbering, empty labels, invalid layouts, ZIP checksums and directory offsets.
 
 A complete seven-STL browser print kit was generated and downloaded during verification. Its ZIP was extracted with the system archive reader. All seven binary STL lengths matched their triangle counts, coordinates were finite, section bodies fit their planned bounds, and label parts occupied Z=0 through the configured 0.6 mm inlay depth. Cancellation was also checked in the browser.
+
+## Solid rack mounting ears
+
+When rear ribs or split joints are present, each rack ear has continuous full-height backing, including around the rack screw hole. Backing depth matches the deeper of the ribs and the 8.5 mm joining key; both ears have the same thickness. Ear width is the rack-hole inset plus its radius plus 4 mm. Rack holes continue through the backing. Connector cutouts overlapping an ear block panel export; nearby hardware clearance is flagged for inspection. Connector face thickness elsewhere is unchanged.
+
+Use solid infill in the mounting ears and screws long enough for their increased thickness. The added backing removes the unsupported gap behind the screw clamping area; resistance to crushing and creep still depends on the material and print settings and has not been physically tested.
+
+A rendered unsplit sample was checked by vertical mesh intersections: both 11 mm ears have continuous backing, both rack screw holes remain open, and the central connector face remains 3 mm thick.
