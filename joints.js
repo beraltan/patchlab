@@ -16,7 +16,7 @@ function plan(input,cutoutBoxes=[],labelBoxes=[]){
  for(let count=Math.ceil(s.width/usable);count<=Math.ceil(s.width/usable)+4;count++)for(let j=1;j<count;j++){const x=s.width*j/count;if(allowed(x))xs.push(x);}
  const candidates=[...new Set(xs)].sort((a,b)=>a-b),dp=candidates.map(()=>({count:Infinity,cost:Infinity,prev:-1}));dp[0]={count:0,cost:0,prev:-1};
  for(let i=1;i<candidates.length;i++)for(let j=i-1;j>=0;j--){const width=candidates[i]-candidates[j];if(width>usable+1e-8)break;if(width<spec.bossWidth+4||!Number.isFinite(dp[j].count))continue;const count=dp[j].count+1,cost=dp[j].cost+width*width;if(count<dp[i].count||(count===dp[i].count&&cost<dp[i].cost))dp[i]={count,cost,prev:j};}
- let index=candidates.length-1;if(dp[index].prev<0){result.error='No clear joint positions fit this bed. Move ports farther apart near the proposed joins, reduce the joint-area crowding, reduce the bed margin, or increase the bed size.';return result;}
+ let index=candidates.length-1;if(dp[index].prev<0){result.error='Export blocked: the '+s.bed+' mm bed minus '+s.bedMargin+' mm per side leaves '+Number(usable.toFixed(2))+' mm usable width. This '+s.width+' mm panel needs a split, but its ports or labels leave no clear joining-key position. '+(s.width<=s.bed&&s.height<=s.bed?'For a one-piece panel, set Bed margin / side to '+Math.floor((s.bed-Math.max(s.width,s.height))*5)/10+' mm or less, if your printable bed area allows it. Leave room for any brim.':'Move ports apart around a join, reduce the margin, or use a larger bed.');return result;}
  const edges=[];while(index>=0){edges.unshift(candidates[index]);index=dp[index].prev;}
  result.seams=edges.slice(1,-1);result.segments=edges.slice(1).map((end,i)=>({start:edges[i],end,width:end-edges[i]}));return result;
 }
