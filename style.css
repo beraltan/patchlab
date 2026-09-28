@@ -7,3 +7,5 @@ button.primary{background:#fff;color:#111;border-color:#fff}button.primary:hover
 .stl-export{padding:0 0 20px;border-bottom:1px solid #444;margin-bottom:18px}#stlDownload{background:#fff;color:#111;padding:14px;border-radius:6px;text-align:center;font-weight:600;text-decoration:none}#stlStatus{min-height:38px}dialog details{margin:16px 0;font-size:12px}dialog summary{cursor:pointer;color:#ccc}#exportDialog{max-height:90vh;overflow:auto}
 
 .layout-tools{border:1px solid #444;padding:16px;margin:16px 0}.layout-tools summary{cursor:pointer;font-weight:600}.layout-tools .pair{align-items:end;margin-top:16px}.gap-editor{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #333;padding-top:10px}.gap-editor input{display:inline-block;width:80px;margin:0 5px}#layoutError{color:#fff}#spacingGaps{max-height:240px;overflow:auto}
+
+.port.not-fitting{border-color:#e65a5a;background:#3b2020}.port.not-fitting strong,.fit-error{color:#ff8f8f}.fit-error{display:block;font-size:11px;line-height:1.5;margin-top:5px}

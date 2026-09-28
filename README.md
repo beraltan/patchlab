@@ -4,9 +4,11 @@ An AI-made tool for messing around with custom rack patch panels and learning Op
 
 **[Try it in your browser](https://beraltan.github.io/patchlab/)**
 
-Change the rack size, add connector holes, name the ports, and download a single 3MF, separate STLs, or an OpenSCAD file to play with. There are two-color labels, rear ribs, and printed joining keys for panels bigger than your printer bed. You can batch-edit ports too, because doing them one at a time gets old.
+Change the rack size, add connector holes, name the ports, and download a single 3MF, STEP, separate STLs, or an OpenSCAD file to play with. There are two-color labels, rear ribs, and printed joining keys for panels bigger than your printer bed. You can batch-edit ports too, because doing them one at a time gets old.
 
 Under **Horizontal spacing and stacked rows**, set edge gaps or center spacing and align rows left, center, or right. Individual gaps are editable too. Select a port, choose a rack-unit count, and repeat its row into one continuous panel. Undo layout puts it back. Up to 11U / 100 ports; the panel still has to fit your bed height.
+
+Ports that don't fit turn red with a reason. **Auto-fit / reduce port count** packs the rows and removes ports that won't fit. **Undo layout** brings them back. Just resizing the panel won't delete your named ports.
 
 ## Give it a go
 
@@ -17,14 +19,16 @@ Under **Horizontal spacing and stacked rows**, set edge gaps or center spacing a
 
 The 3MF is a standard model file, without printer settings. In Bambu Studio, import the geometry if prompted, expand the panel in the Objects list, and assign your two filaments. The export includes named Panel body and Port labels parts, assigned to filaments 1 and 2 in Bambu/Orca. Add two project filaments, switch to Objects, and expand the panel to change them. Other slicers can use the standard 3MF components. Keep them grouped when moving or arranging.
 
+Want to edit it in CAD? Choose **All parts (STEP CAD solids)**. Holes are true circles/cylinders, with separate bodies, label inlays and joining keys. Use 3MF for assigning print colors.
+
 There's a [tolerance test](assets/patchlab-tolerance-test.stl) for dialing in the joining keys before printing a whole panel. This is a learning project, so check your connector dimensions and expect some trial and error. The joints haven't been physically tested yet.
 
 Designs save in your browser. Use **Save project** if you want a file to keep or move to another computer.
 
 ## Run it locally
 
-Run `npm start` and visit http://127.0.0.1:4173. No packages to install. You can also open `index.html` for editing, but direct STL generation needs the server or hosted site. `npm test` runs the checks.
+Run `npm start` and visit http://127.0.0.1:4173. No packages to install. You can also open `index.html` for editing, but print and STEP generation need the server or hosted site. `npm test` runs the checks with Node 22.7 or newer.
 
-The STL engine loads on demand and runs in your browser; nothing gets uploaded. Big panels can take a few minutes. OpenSCAD export is still there if you want to tweak the code yourself.
+Export engines load on demand and run in your browser; nothing gets uploaded. STEP loads a separate CAD engine (about 23 MB on first use). Big panels can take a few minutes. OpenSCAD export is still there if you want to tweak the code yourself.
 
 If you're curious about the more technical stuff, it's in the [design notes](ENGINEERING.md).

@@ -1,0 +1,4 @@
+Bundled license information:
+
+replicad/dist/replicad.js:
+  /*! https://mths.be/codepointat v0.2.0 by @mathias */
